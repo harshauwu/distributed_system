@@ -7,7 +7,7 @@
 - AWS
 - Swagger
 
-###Architecture
+### Architecture
 
 ##### Below is the architectural diagram for distributed system project.
 
@@ -17,15 +17,15 @@ This system has two microservices
 - Order Microservice
 - Voucher Consumer Microservice
 
-###Installation
+### Installation
 First you need to clone order and voucher microservice code into local machine.
 
-#####Create network
+##### Create network
 ```
 docker network create mynet
 ```
 
-#####Pull Mongo Image
+##### Pull Mongo Image
 ```
 docker pull mongo
 docker run --name mongod -d -v mongo-data:/data/db -p 27017:27017 --network mynet mongo
