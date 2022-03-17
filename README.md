@@ -8,9 +8,10 @@
 - Swagger
 
 ###Architecture
-.. image:: /documents/architecture/distributed_system.png
 
 ##### Below is the architectural diagram for distributed system project.
+
+.. image:: /documents/architecture/distributed_system.png
 
 This system has two microservices
 - Order Microservice
