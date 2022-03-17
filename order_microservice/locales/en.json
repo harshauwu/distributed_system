@@ -1,0 +1,6 @@
+{
+	"messages.success.save_order": "Order has been created successfully",
+	"messages.validation.attribute_is_required": "The {{attribute}} is required",
+	"messages.validation.attribute_is_mongo_id": "The {{attribute}} should be a valid MongoId",
+	"messages.validation.attribute_is_string": "The {{attribute}} should be a string."
+}
