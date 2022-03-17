@@ -1,5 +1,5 @@
 {
-  "name": "Order Microservice",
+  "name": "order_microservice",
   "version": "1.0.0",
   "description": "This is a order microservice for distributed system",
   "main": "index.js",
@@ -51,7 +51,8 @@
     "prettier": "1.18.2",
     "jest": "^26.6.3",
     "jest-chain": "^1.1.5",
-    "jest-extended": "^0.11.5"
+    "jest-extended": "^0.11.5",
+    "mongodb-memory-server": "^6.9.6"
   },
   "husky": {
     "hooks": {

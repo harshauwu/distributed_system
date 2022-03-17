@@ -27,7 +27,7 @@ CONFIG.db_password = process.env.DB_PASSWORD || undefined;
 
 CONFIG.test_db_host = process.env.TEST_DB_HOST || 'localhost';
 CONFIG.test_db_port = process.env.TEST_DB_PORT || '27017';
-CONFIG.test_db_name = process.env.TEST_DB_NAME || 'document';
+CONFIG.test_db_name = process.env.TEST_DB_NAME || 'order';
 CONFIG.test_db_user = process.env.TEST_DB_USER || undefined;
 CONFIG.test_db_password = process.env.TEST_DB_PASSWORD || undefined;
 
