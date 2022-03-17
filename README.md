@@ -6,6 +6,7 @@
 - Mongodb
 - AWS
 - Swagger
+- Docker
 
 ### Architecture
 
