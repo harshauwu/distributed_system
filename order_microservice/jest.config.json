@@ -1,0 +1,23 @@
+{
+    "testEnvironment": "node",
+    "coverageReporters": ["text","html"],
+    "coverageDirectory": "./tests/coverage/",
+    "coveragePathIgnorePatterns": [
+      "/node_modules/",
+      "/config/",
+      "/bin/",
+      "/logs/",
+      "/locales/",
+      "/coverage/",
+      "/public/",
+      "/swagger/",
+      "/tests/",
+      "/app.js",
+      "/models/index.js",
+      "/routes/api/routes.js"
+    ],
+    "setupFilesAfterEnv": [
+      "jest-extended",
+      "jest-chain"
+    ]
+} 
