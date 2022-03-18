@@ -37,7 +37,7 @@ CONFIG.aws_region = process.env.AWS_REGION || 'us-east-1';
 
 CONFIG.sqs_url = process.env.SQS_URL || 'xxx';
 
-CONFIG.log_path = process.env.LOG_PATH || '/logs';
+CONFIG.log_path = process.env.LOG_PATH || 'logs';
 CONFIG.log_level = process.env.LOG_LEVEL || 'info';
 CONFIG.log_driver = process.env.LOG_DRIVER || 'local';
 

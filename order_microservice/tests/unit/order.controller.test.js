@@ -1,4 +1,5 @@
 const faker = require('faker');
+const request = require('supertest');
 const app = require('../../app');
 const { locales } = require('../../locales/index');
 const orderEndpoint = '/order-service/v1/order';
@@ -41,7 +42,36 @@ describe('Order Controller', () => {
                     expect.objectContaining({
                         message: expect.objectContaining({
                             name: locales.__('messages.validation.attribute_is_required', {
-                                attribute: 'shipping name'
+                                attribute: 'shipping_name'
+                            })
+                        })
+                    })
+                );
+                done();
+            });
+
+            test('it should return 422 with shipping address required validation', async done => {
+                const response = await request(app)
+                    .post(orderEndpoint)
+                    .set({
+                        items: [
+                            {
+                            product_id : "623298a75e699300815dca5d",
+                            unit_price : 60,
+                            quantity : faker.random.number({ min: 2 })
+                            }
+                        ],
+                        shipping_name : "harsha lakmal"
+                    })
+                    .type('json')
+                    .send({});
+
+                expect(response.status).toBe(422);
+                expect(response.body).toEqual(
+                    expect.objectContaining({
+                        message: expect.objectContaining({
+                            name: locales.__('messages.validation.attribute_is_required', {
+                                attribute: 'shipping_address'
                             })
                         })
                     })

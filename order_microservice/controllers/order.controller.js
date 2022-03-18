@@ -64,12 +64,12 @@ const saveOrder = async (req, res) => {
         );
     } catch (error) {
         // if anything fails above just rollback the changes here
-        await rollbackVoucherJob(orderId, customerId);
+        //await rollbackVoucherJob(orderId, customerId);
 
         // this will rollback any changes made in the database
         //await session.abortTransaction();
         
-        log.error(`Error:: stack: ${error.stack}`);
+        log.error(`Error:: message: ${error.stack}`);
         return responseError(
             res,
             (error.mapped && error.mapped()) || error.message,
