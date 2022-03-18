@@ -74,4 +74,4 @@ http://localhost:4009/order-service/v1/api-docs
 
 I have attached screenshot of the swagger api documentation below.
 
-.. image:: /documents/swagger_documentation.png
+![My Image](/documents/swagger_documentation.png)
