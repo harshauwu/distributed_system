@@ -3,9 +3,9 @@ const { throwError } = require('../services/util.service');
 
 class OrderService {
 
-    async saveOrder (data) {
+    async saveOrder(data) {
         try {
-           return await orderModel.create(data);
+            return await orderModel.create(data);
         } catch (error) {
             throwError(error, true);
         }
