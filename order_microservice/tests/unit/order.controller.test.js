@@ -58,9 +58,24 @@ describe("Order Controller", () => {
         expect(response.status).toBe(422);
         done();
       });
+
+      test('it should return 422 with items should be an array', async done => {
+          const response = await request(app)
+          .post(orderEndpoint)
+          .set({
+            items: {},
+            shipping_address: "test address",
+            shipping_name: "harsha lakmal"
+          })
+          .type("json")
+          .send({});
+
+        expect(response.status).toBe(422);
+        done();
+      });
     });
 
-    describe('200 status', () => {
+    describe("200 status", () => {
       test("it should return 200", async done => {
         const response = await request(app)
           .post(orderEndpoint)
@@ -79,6 +94,6 @@ describe("Order Controller", () => {
         expect(response.status).toBe(200);
         done();
       });
-    })
+    });
   });
 });
