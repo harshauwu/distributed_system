@@ -59,8 +59,8 @@ describe("Order Controller", () => {
         done();
       });
 
-      test('it should return 422 with items should be an array', async done => {
-          const response = await request(app)
+      test("it should return 422 with items should be an array", async done => {
+        const response = await request(app)
           .post(orderEndpoint)
           .set({
             items: {},
