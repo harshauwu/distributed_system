@@ -73,7 +73,7 @@ const saveOrder = async (req, res) => {
     // if anything fails above just rollback the changes here
     //await rollbackVoucherJob(orderId, customerId);
 
-    log.error(`Error:: message: ${error.stack}`);
+    //log.error(`Error:: message: ${error.stack}`);
     return responseError(
       res,
       (error.mapped && error.mapped()) || error.message,

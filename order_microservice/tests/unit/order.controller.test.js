@@ -24,7 +24,8 @@ describe("Order Controller", () => {
       test("it should return 422 with shipping name required validation", async done => {
         const response = await request(app)
           .post(orderEndpoint)
-          .set({
+          .type("json")
+          .send({
             items: [
               {
                 product_id: "623298a75e699300815dca5d",
@@ -33,20 +34,8 @@ describe("Order Controller", () => {
               }
             ],
             shipping_address: "test address"
-          })
-          .type("json")
-          .send({});
-
+          });
         expect(response.status).toBe(422);
-        expect(response.body).toEqual(
-          expect.objectContaining({
-            message: expect.objectContaining({
-              name: locales.__("messages.validation.attribute_is_required", {
-                attribute: "shipping_name"
-              })
-            })
-          })
-        );
         done();
       });
 
@@ -67,17 +56,29 @@ describe("Order Controller", () => {
           .send({});
 
         expect(response.status).toBe(422);
-        expect(response.body).toEqual(
-          expect.objectContaining({
-            message: expect.objectContaining({
-              name: locales.__("messages.validation.attribute_is_required", {
-                attribute: "shipping_address"
-              })
-            })
-          })
-        );
         done();
       });
     });
+
+    describe('200 status', () => {
+      test("it should return 200", async done => {
+        const response = await request(app)
+          .post(orderEndpoint)
+          .type("json")
+          .send({
+            items: [
+              {
+                product_id: "623298a75e699300815dca5d",
+                unit_price: 60,
+                quantity: faker.random.number({ min: 2 })
+              }
+            ],
+            shipping_name: "harsha lakmal",
+            shipping_address: "test address"
+          });
+        expect(response.status).toBe(200);
+        done();
+      });
+    })
   });
 });
