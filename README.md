@@ -12,7 +12,7 @@
 
 ##### Below is the architectural diagram for distributed system project.
 
-.. image:: /documents/architecture/distributed_system.png
+![My Image](/documents/architecture/distributed_system.png)
 
 This system has two microservices
 - Order Microservice
