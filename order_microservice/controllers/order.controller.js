@@ -20,8 +20,7 @@ const {
 const saveOrder = async (req, res) => {
     let orderId;
     const customerId = '623298a75e699300815dca5d';
-    //const session = await mongoose.startSession();
-    //session.startTransaction();
+
     try {
         validationResult(req)
         .formatWith(errorFormatter)
@@ -53,8 +52,6 @@ const saveOrder = async (req, res) => {
             }
         }
 
-        //commit the changes if everything was successful
-        //await session.commitTransaction();
         return responseSuccess(
             res, 
             {
@@ -65,9 +62,6 @@ const saveOrder = async (req, res) => {
     } catch (error) {
         // if anything fails above just rollback the changes here
         await rollbackVoucherJob(orderId, customerId);
-
-        // this will rollback any changes made in the database
-        //await session.abortTransaction();
         
         log.error(`Error:: stack: ${error.stack}`);
         return responseError(
@@ -75,10 +69,7 @@ const saveOrder = async (req, res) => {
             (error.mapped && error.mapped()) || error.message,
             ResponseCode.UNPROCESSABLE_ENTITY
         );
-    } finally {
-        // ending the session
-        //session.endSession();
-    }
+    } 
 }
 
 const rollbackVoucherJob = async (orderId, customerId) => {
